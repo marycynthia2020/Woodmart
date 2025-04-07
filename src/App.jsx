@@ -12,13 +12,17 @@ import NotFound from './components/NotFound'
 import PaymentAndDelivery from './pages/PaymentAndDelivery'
 import Footer from './components/sharedComponents/Footer'
 import ShoppingCart from './components/ShoppingCart'
+import { useState } from 'react'
 
 function App() {
-
+  const[isOpen, setIsOpen] = useState(false)
+ const onShow = ()=>{
+  setIsOpen((prev) => !prev)
+ }
   return (
     <div className='overflow-x-hidden relative'>
-       <ShoppingCart />
-    <Navbar />
+      {isOpen?  <ShoppingCart />:null}
+    <Navbar onShow={onShow}/>
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/aboutus' element={<AboutUS />} />

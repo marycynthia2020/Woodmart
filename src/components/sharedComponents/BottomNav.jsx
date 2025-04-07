@@ -8,7 +8,8 @@ import { IoIosArrowDown } from "react-icons/io";
 import { IoPersonOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 
-const BottomNav = () => {
+const BottomNav = ({onClick}) => {
+
   return (
     <nav className='py-4 px-2 w-full text-white bg-[#1246AB] flex items-center justify-between font-semibold '>
         <div className='w-full 2xl:w-[80vw] mx-auto flex justify-between items-center bg-[#1246AB]'>
@@ -42,8 +43,8 @@ const BottomNav = () => {
                 <div className=" hidden lg:block text-2xl p-3 rounded-full border border-white">
                     <GrServices />
                 </div>
-                <div className="hidden lg:block text-2xl p-3 rounded-full border border-white">
-                    <IoCartOutline />
+                <div className=" text-2xl p-3 rounded-full border border-white">
+                    <IoCartOutline onClick={onClick} />
                 </div>
             </div>
             <IoPersonOutline className=" 2xl:hidden text-3xl"/>

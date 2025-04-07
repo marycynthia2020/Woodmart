@@ -1,24 +1,17 @@
 import { useEffect, useState } from "react";
 import { IoCheckmarkOutline } from "react-icons/io5";
-// import image from "/images/backgroundcarpenter1.jpg";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
-  const [isOpen, setIsOpen] = useState(true);
-  const closeSideBar = () => {
-    setIsOpen(false);
-  };
-  
-
+ 
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch("https://fakestoreapi.com/products");
         const data = await response.json();
-        console.log(data)
         setProducts( data);
       } catch (error) {
-        console.log(error);
+        alert(error);
       }
     }
     fetchData();
@@ -36,7 +29,7 @@ const Product = () => {
       </div>
       <div className=" grid grid-cols-2 lg-grid-cols-3 xl:grid-cols-4 gap-0 items-stretch  ">
         {products.map(item => (
-          <div className="p-4 flex flex-col gap-2 border-2 justify-between">
+          <div key={item.id} className="p-4 flex flex-col gap-2 border-2 justify-between">
           <div className="self-center w-[200x] h-[160px]">
           <img src={item.image} alt="product" className="w-full h-full"/>
           </div>
@@ -54,7 +47,7 @@ const Product = () => {
               <span>1</span>
               <button>+</button>
             </div>
-            <div className="">ADD <span className="hidden sm:inline">TO CART</span></div>
+            <button className="">ADD <span className="hidden sm:inline">TO CART</span></button>
           </div>
         </div>
         ))}

@@ -1,11 +1,11 @@
 import TopNav from "./TopNav";
 import BottomNav from "./BottomNav";
 
-const Navbar = () => {
+const Navbar = ({onShow}) => {
   return (
     <>
        <TopNav />
-       <BottomNav />
+       <BottomNav onClick={onShow}/>
     </>
 
   )
