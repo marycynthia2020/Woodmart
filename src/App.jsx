@@ -16,15 +16,18 @@ import { useState } from 'react'
 
 function App() {
   const[isOpen, setIsOpen] = useState(false)
- const onShow = ()=>{
+  const [cartItem, setCartItem] = useState([])
+  console.log(cartItem)
+
+ const showSideBar = ()=>{
   setIsOpen((prev) => !prev)
  }
   return (
     <div className='overflow-x-hidden relative'>
-      {isOpen?  <ShoppingCart />:null}
-    <Navbar onShow={onShow}/>
+      {isOpen?  <ShoppingCart cartItem={cartItem} />:null}
+    <Navbar showSideBar={showSideBar}/>
     <Routes>
-      <Route path='/' element={<Home />} />
+      <Route path='/' element={<Home setCartItem={setCartItem} setIsOpen={setIsOpen}/>} />
       <Route path='/aboutus' element={<AboutUS />} />
       <Route path='/allcategories' element={<AllCategories />} />
       <Route path='/expertadvice' element={<ExpertAdvice />} />

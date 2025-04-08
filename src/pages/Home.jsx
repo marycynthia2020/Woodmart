@@ -2,11 +2,11 @@ import React from 'react'
 import Hero from '../components/Hero'
 import Product from '../components/Product'
 
-const Home = () => {
+const Home = ({setCartItem, setIsOpen}) => {
   return (
     <div>
       <Hero />
-      <Product />
+      <Product setCartItem={setCartItem} setIsOpen={setIsOpen}/>
     </div>
   )
 }
