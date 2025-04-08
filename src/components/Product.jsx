@@ -77,7 +77,7 @@ const Product = ({ setCartItem, setIsOpen }) => {
             <p className="text-[#1246AB]">
               ${item.price} <span className="text-[#333333B3]">/ each</span>
             </p>
-            <CountButtons setCartItem={setCartItem} item={item} setIsOpen={setIsOpen}/>
+            <CountButtons setCartItem={setCartItem} item={item} setIsOpen={setIsOpen} ADD="ADD" TOCART={"TO CART"}/>
           </div>
         ))}
       </div>

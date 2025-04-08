@@ -17,14 +17,14 @@ import { useState } from 'react'
 function App() {
   const[isOpen, setIsOpen] = useState(false)
   const [cartItem, setCartItem] = useState([])
-  console.log(cartItem)
+  // console.log(cartItem)
 
  const showSideBar = ()=>{
   setIsOpen((prev) => !prev)
  }
   return (
     <div className='overflow-x-hidden relative'>
-      {isOpen?  <ShoppingCart cartItem={cartItem} />:null}
+      {isOpen?  <ShoppingCart cartItem={cartItem} setCartItem={setCartItem} />:null}
     <Navbar showSideBar={showSideBar}/>
     <Routes>
       <Route path='/' element={<Home setCartItem={setCartItem} setIsOpen={setIsOpen}/>} />
