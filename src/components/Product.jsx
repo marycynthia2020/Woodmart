@@ -2,12 +2,9 @@ import { useEffect, useState } from "react";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import CountButtons from "./CountButtons";
 
-const Product = ({ setCartItem, setIsOpen }) => {
+const Product = ({ setCartItem, setIsOpen, formData}) => {
   const [productData, setProductData] = useState([]);
   const [products, setProducts] = useState([]);
-
-  // const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  // localStorage.setItem("cartItems", JSON.stringify(cartItem))
 
   useEffect(() => {
     async function fetchData() {
@@ -23,9 +20,18 @@ const Product = ({ setCartItem, setIsOpen }) => {
     fetchData();
   }, []);
 
-  const showAllProducts = () => {
-    setProducts(productData);
-  };
+  const searchValue = formData.searchProduct
+
+  useEffect(() => {
+    if(searchValue){
+     const foundProducts =  productData.filter(item => item.category.includes(searchValue.toLowerCase()))
+    setProducts(foundProducts)
+    }
+  }, [searchValue])
+
+  
+  const showAllProducts = () => setProducts(productData);
+  
 
   const showNewProducts = () => {
     const filteredNewProducts = productData.filter(

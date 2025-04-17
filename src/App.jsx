@@ -17,7 +17,14 @@ import { useState } from 'react'
 function App() {
   const[isOpen, setIsOpen] = useState(false)
   const [cartItem, setCartItem] = useState([])
-  // console.log(cartItem)
+  const [formData, setFormData] = useState({
+    searchProduct: "",
+})
+
+const handleChange = (e)=>
+    setFormData(prev => {
+        return {...prev, [e.target.name]: e.target.value}
+    })
 
  const showSideBar = ()=>{
   setIsOpen((prev) => !prev)
@@ -25,9 +32,9 @@ function App() {
   return (
     <div className='overflow-x-hidden relative'>
       {isOpen?  <ShoppingCart cartItem={cartItem} setCartItem={setCartItem} />:null}
-    <Navbar showSideBar={showSideBar}/>
+    <Navbar showSideBar={showSideBar} cartItem={cartItem} formData={formData} handleChange={handleChange}/>
     <Routes>
-      <Route path='/' element={<Home setCartItem={setCartItem} setIsOpen={setIsOpen}/>} />
+      <Route path='/' element={<Home setCartItem={setCartItem} setIsOpen={setIsOpen} formData={formData}/>} />
       <Route path='/aboutus' element={<AboutUS />} />
       <Route path='/allcategories' element={<AllCategories />} />
       <Route path='/expertadvice' element={<ExpertAdvice />} />

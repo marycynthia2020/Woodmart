@@ -1,9 +1,12 @@
 import BlueButton from "../btns/BlueButton"
 import tube from "/images/bathtube1.jpg"
 
+
 const Hero = () => {
+    
+
   return (
-    <div className=' lg:h-[400px] bg-[#1b5bb4] text-white w-full px-2 mb-10 lg:mb-64 ' >
+    <div className=' lg:h-[400px] bg-[#1b5bb4] text-white w-full px-2 mb-10 lg:mb-40 ' >
         <div className=' w-full 2xl:w-[80vw] mx-auto grid lg:grid-cols-12 lg:grid-rows-12 gap-4'>
             <div className='lg:col-span-8 lg:row-span-12 lg:grid lg:grid-cols-6'>
                 <div className='col-span-3 px-4  lg:px-10 py-2  bg-[#d1bda5]  flex flex-col gap-6 justify-center'>
