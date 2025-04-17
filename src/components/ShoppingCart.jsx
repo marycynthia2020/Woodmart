@@ -19,7 +19,7 @@ useEffect(()=>{
   cartItem?.map(item => {
     let totalItemCost = item.quantity * item.price
     sum+=totalItemCost
-    setTotal(sum)
+    setTotal( sum.toLocaleString())
   })
 }, [cartItem])
 
