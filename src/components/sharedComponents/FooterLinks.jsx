@@ -12,7 +12,7 @@ import { SiYoutubemusic } from "react-icons/si";
 
 const FooterLinks = () => {
   return (
-    <div className=" cursor-pointer px-2 w-full 2xl:w-[80vw] mx-auto grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 text-[#767676] items-center mb-8">
+    <div className=" cursor-pointer px-2 w-full 2xl:w-[80vw] mx-auto grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5  text-[#767676] items-center mb-8">
       <div>
         <div className="mb-6">
           <img src={logo} alt="woodmart logo" />

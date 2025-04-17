@@ -59,7 +59,7 @@ const Product = ({ setCartItem, setIsOpen, formData}) => {
   return (
     <div className="px-2 w-full 2xl:w-[80vw] mx-auto font-semibold mb-6">
       <div className="flex flex-col xl:flex-row gap-4 xl:justify-between items-center text-xl mb-4">
-        <button onClick={showAllProducts}>Featured Products</button>
+        <button onClick={showAllProducts}>All Products</button>
         <div className="flex items-center gap-4 text-[#333333B3]">
           <button onClick={showNewProducts}>New</button>
           <button onClick={showFeaturedProducts}>Featured</button>
