@@ -7,11 +7,14 @@ import { IoCartOutline } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoPersonOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import cartContext from "../usecontext/CartContext";
 
-const BottomNav = ({ showSideBar, cartItem, formData, handleChange }) => {
-  const cartItemCount = cartItem.length;
-
+const BottomNav = () => {
+  // const {cartItem, formData, handleChange, showSideBar} = useContext(cartContext)
+  
+  // const cartItemCount = cartItem.length;
+  
   return (
     <nav className="py-4 px-2 w-full text-white bg-[#1246AB] flex items-center justify-between font-semibold ">
       <div className="w-full 2xl:w-[80vw] mx-auto flex justify-between items-center bg-[#1246AB]">
@@ -34,15 +37,15 @@ const BottomNav = ({ showSideBar, cartItem, formData, handleChange }) => {
             Payment And Delivery
           </NavLink>
         </div>
-        <div className="flex items-center justify-between gap-6">
+        <div className="flex items-center justify-between gap-6 cursor-pointer">
           <div className="bg-white flex items-center justify-between text-black py-3  px-8 ">
             <input
               type="text"
               placeholder="search for a product"
               className="text-sm outline-none"
               name="searchProduct"
-              value={formData.searchProduct}
-              onChange={handleChange}
+              // value={formData.searchProduct}
+              // onChange={handleChange}
             />
             <IoIosSearch className="text-2xl" />
           </div>
@@ -53,9 +56,9 @@ const BottomNav = ({ showSideBar, cartItem, formData, handleChange }) => {
             <GrServices />
           </div>
           <div className=" text-2xl p-3 rounded-full border border-white relative ">
-            <IoCartOutline onClick={showSideBar} />
+            {/* <IoCartOutline onClick={showSideBar} /> */}
             <div className=" h-5 w-5 font-normal flex items-center justify-center text-sm text-black bg-white rounded-full  absolute top-0 -right-1">
-              <span>{cartItemCount}</span>
+              {/* <span>{cartItemCount}</span> */}
             </div>
           </div>
         </div>

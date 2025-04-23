@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import CountButtons from "./CountButtons";
+import cartContext from "./usecontext/CartContext";
 
-const Product = ({ setCartItem, setIsOpen, formData}) => {
+const Product = () => {
+  console.log(cartContext)
   const [productData, setProductData] = useState([]);
   const [products, setProducts] = useState([]);
+
+  const { setCartItem, setIsOpen, formData} = useContext(cartContext);
 
   useEffect(() => {
     async function fetchData() {
@@ -20,18 +24,18 @@ const Product = ({ setCartItem, setIsOpen, formData}) => {
     fetchData();
   }, []);
 
-  const searchValue = formData.searchProduct
+  const searchValue = formData.searchProduct;
 
   useEffect(() => {
-    if(searchValue){
-     const foundProducts =  productData.filter(item => item.category.includes(searchValue.toLowerCase()))
-    setProducts(foundProducts)
+    if (searchValue) {
+      const foundProducts = productData.filter(item =>
+        item.category.includes(searchValue.toLowerCase())
+      );
+      setProducts(foundProducts);
     }
-  }, [searchValue])
+  }, [searchValue]);
 
-  
   const showAllProducts = () => setProducts(productData);
-  
 
   const showNewProducts = () => {
     const filteredNewProducts = productData.filter(
@@ -83,7 +87,13 @@ const Product = ({ setCartItem, setIsOpen, formData}) => {
             <p className="text-[#1246AB]">
               ${item.price} <span className="text-[#333333B3]">/ each</span>
             </p>
-            <CountButtons setCartItem={setCartItem} item={item} setIsOpen={setIsOpen} ADD="ADD" TOCART={"TO CART"}/>
+            <CountButtons
+              setCartItem={setCartItem}
+              item={item}
+              setIsOpen={setIsOpen}
+              ADD="ADD"
+              TOCART={"TO CART"}
+            />
           </div>
         ))}
       </div>

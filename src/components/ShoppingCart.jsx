@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CountButtons from "./CountButtons";
 import RemoveFromCartButton from "./RemoveFromCartButton";
+// import { cartContext } from "./usecontext/CartContext";
 
-const ShoppingCart = ({ cartItem, setCartItem }) => {
+const ShoppingCart = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [total, setTotal] = useState(0);
+
+  // const {cartItem, setCartItem} = useContext(cartContext)
 
   const closeSideBar = () => {
     setIsOpen(false);
