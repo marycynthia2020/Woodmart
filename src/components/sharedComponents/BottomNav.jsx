@@ -8,12 +8,12 @@ import { IoIosArrowDown } from "react-icons/io";
 import { IoPersonOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
-import cartContext from "../usecontext/CartContext";
+import  { cartContextProvider } from "../../usecontext/CartContext";
 
 const BottomNav = () => {
-  // const {cartItem, formData, handleChange, showSideBar} = useContext(cartContext)
+  const {cartItem, formData, handleChange, showSideBar} = useContext(cartContextProvider)
   
-  // const cartItemCount = cartItem.length;
+  const cartItemCount = cartItem.length;
   
   return (
     <nav className="py-4 px-2 w-full text-white bg-[#1246AB] flex items-center justify-between font-semibold ">
@@ -44,8 +44,8 @@ const BottomNav = () => {
               placeholder="search for a product"
               className="text-sm outline-none"
               name="searchProduct"
-              // value={formData.searchProduct}
-              // onChange={handleChange}
+              value={formData.searchProduct}
+              onChange={handleChange}
             />
             <IoIosSearch className="text-2xl" />
           </div>
@@ -56,9 +56,9 @@ const BottomNav = () => {
             <GrServices />
           </div>
           <div className=" text-2xl p-3 rounded-full border border-white relative ">
-            {/* <IoCartOutline onClick={showSideBar} /> */}
+            <IoCartOutline onClick={showSideBar} />
             <div className=" h-5 w-5 font-normal flex items-center justify-center text-sm text-black bg-white rounded-full  absolute top-0 -right-1">
-              {/* <span>{cartItemCount}</span> */}
+              <span>{cartItemCount}</span>
             </div>
           </div>
         </div>

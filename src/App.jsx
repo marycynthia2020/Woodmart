@@ -12,31 +12,28 @@ import PaymentAndDelivery from "./pages/PaymentAndDelivery";
 import Footer from "./components/sharedComponents/Footer";
 import ShoppingCart from "./components/ShoppingCart";
 import { useContext } from "react";
-import CartContext, { cartContext } from "./components/usecontext/CartContext";
+import { cartContextProvider } from "./usecontext/CartContext";
 
 function App() {
-  // const { isOpen } = useContext(cartContext)
+  const { isOpen } = useContext(cartContextProvider);
 
   return (
-    <CartContext>
-      <div className="overflow-x-hidden relative">
-       
-        {/* {isOpen ? <ShoppingCart /> : null} */}
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/aboutus" element={<AboutUS />} />
+    <div className="overflow-x-hidden relative">
+      {isOpen ? <ShoppingCart /> : null}
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/aboutus" element={<AboutUS />} />
           <Route path="/allcategories" element={<AllCategories />} />
           <Route path="/expertadvice" element={<ExpertAdvice />} />
           <Route path="/paymentanddelivery" element={<PaymentAndDelivery />} />
           <Route path="/promotions" element={<Promotions />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/trackorder" element={<TrackOrder />} /> */}
-        </Routes>
+          <Route path="/trackorder" element={<TrackOrder />} />
+      </Routes>
 
-        <Footer />
-      </div>
-      </CartContext>
+      <Footer />
+    </div>
   );
 }
 

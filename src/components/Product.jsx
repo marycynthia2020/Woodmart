@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import CountButtons from "./CountButtons";
-import cartContext from "./usecontext/CartContext";
+import { cartContextProvider } from "../usecontext/CartContext";
 
 const Product = () => {
-  console.log(cartContext)
+ 
   const [productData, setProductData] = useState([]);
   const [products, setProducts] = useState([]);
 
-  const { setCartItem, setIsOpen, formData} = useContext(cartContext);
+  const { setCartItem, setIsOpen, formData} = useContext(cartContextProvider);
 
   useEffect(() => {
     async function fetchData() {
